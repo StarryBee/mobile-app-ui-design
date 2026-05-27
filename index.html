@@ -68,43 +68,28 @@
     .bow {
       display: flex;
       justify-content: center;
-      padding: 12px 0 4px;
+      padding: 6px 0 0;
     }
-    .bow svg { width: 52px; height: 26px; }
-
-    /* ─── TOP BAR ──────────────────────────────────────── */
-    .top-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 6px 20px;
-      background: var(--cream);
-    }
-    .top-bar__menu { cursor: pointer; display: flex; flex-direction: column; gap: 5px; }
-    .top-bar__menu span { display: block; width: 22px; height: 2px; background: var(--text-dark); border-radius: 2px; }
-    .top-bar__search { cursor: pointer; font-size: 18px; color: var(--text-dark); }
+    .bow svg { width: 36px; height: 18px; }
 
     /* ─── MASTHEAD ─────────────────────────────────────── */
     .masthead {
       text-align: center;
-      padding: 0 20px 6px;
+      padding: 2px 20px 6px;
       background: var(--cream);
       border-bottom: 1.5px solid var(--border);
     }
-    .masthead__title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 7vw, 46px);
-      font-weight: 800;
-      letter-spacing: .04em;
-      color: var(--text-dark);
-      line-height: 1;
+    .masthead__logo {
+      width: clamp(160px, 50vw, 240px);
+      height: auto;
+      margin: 0 auto;
+      display: block;
     }
-    .masthead__title span { color: var(--rose); }
     .masthead__tagline {
       font-family: 'Dancing Script', cursive;
-      font-size: clamp(12px, 3.2vw, 16px);
+      font-size: clamp(11px, 2.8vw, 14px);
       color: var(--text-soft);
-      margin-top: 4px;
+      margin-top: 0px;
       letter-spacing: .04em;
     }
     .masthead__divider {
@@ -112,7 +97,7 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      margin-top: 8px;
+      margin-top: 5px;
     }
     .masthead__divider::before,
     .masthead__divider::after {
@@ -218,11 +203,12 @@
     .hero__collage {
       position: relative;
       height: 260px;
+      overflow: visible;
     }
     .hero__collage-main {
       position: absolute;
-      right: 0; top: 0;
-      width: 85%;
+      left: 0; right: 0; top: 0;
+      width: 100%;
       height: 220px;
       border-radius: 12px 12px 60px 12px;
       object-fit: cover;
@@ -230,7 +216,7 @@
     }
     .hero__collage-badge {
       position: absolute;
-      top: 12px; left: 0;
+      bottom: 46px; left: 10px;
       background: rgba(255,255,255,.92);
       border: 1.5px solid var(--rose-light);
       border-radius: 10px;
@@ -242,11 +228,12 @@
       display: flex;
       align-items: center;
       gap: 6px;
+      z-index: 2;
     }
     .hero__collage-badge svg { width: 16px; height: 16px; }
     .hero__collage-note {
       position: absolute;
-      bottom: 28px; right: -6px;
+      bottom: 20px; right: 6px;
       background: var(--blush);
       border: 1px solid var(--rose-light);
       border-radius: 6px;
@@ -259,6 +246,7 @@
       line-height: 1.5;
       transform: rotate(3deg);
       box-shadow: 0 2px 8px rgba(212,104,138,.2);
+      z-index: 2;
     }
 
     /* ─── META ROW ─────────────────────────────────────── */
@@ -755,8 +743,7 @@
     @media (min-width: 900px) {
       .hero { max-width: 900px; margin: 0 auto; }
       .more-section, .story2, .lifestyle-section { max-width: 900px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
-      .newsletter { }
-      .masthead__title { font-size: 54px; }
+      .masthead__logo { width: 260px; }
     }
   </style>
 </head>
@@ -773,7 +760,6 @@
 <!-- ║              BOW + TOP BAR           ║ -->
 <!-- ╚══════════════════════════════════════╝ -->
 <div class="bow">
-  <!-- hand-drawn style bow SVG -->
   <svg viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="20" cy="20" rx="18" ry="10" fill="#f2b8cb" opacity=".7" transform="rotate(-20 20 20)"/>
     <ellipse cx="60" cy="20" rx="18" ry="10" fill="#f2b8cb" opacity=".7" transform="rotate(20 60 20)"/>
@@ -784,21 +770,11 @@
   </svg>
 </div>
 
-<div class="top-bar">
-  <div class="top-bar__menu" id="menuBtn">
-    <span></span><span></span><span></span>
-  </div>
-  <div></div><!-- spacer -->
-  <div class="top-bar__search">
-    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-  </div>
-</div>
-
 <!-- ╔══════════════════════════════════════╗ -->
 <!-- ║              MASTHEAD                ║ -->
 <!-- ╚══════════════════════════════════════╝ -->
 <header class="masthead">
-  <h1 class="masthead__title">AVAKIN <span>REPORT</span></h1>
+  <img class="masthead__logo" src="images/logo.png" alt="Avakin Report" />
   <p class="masthead__tagline">real stories &nbsp;·&nbsp; real voices &nbsp;·&nbsp; real change</p>
   <div class="masthead__divider"><span class="masthead__divider-icon">✦</span></div>
 </header>
@@ -849,7 +825,7 @@
   <div class="hero__meta">
     <span class="hero__meta-item">
       <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      By A Woman, For Women
+      By A Woman, For the Avakin Life Community
     </span>
     <span class="hero__meta-sep"></span>
     <span class="hero__meta-item">
@@ -859,12 +835,12 @@
     <span class="hero__meta-sep"></span>
     <span class="hero__meta-item">
       <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-      4.8K
+      0
     </span>
     <span class="hero__meta-sep"></span>
     <span class="hero__meta-item">
       <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      12K
+      0
     </span>
     <span class="hero__meta-save">
       <svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
@@ -894,7 +870,7 @@
 <div style="padding: 0 18px;">
   <div class="quote-section">
     <div class="quote-section__text">
-      <div class="quote-section__mark">"</div>
+      <div class="quote-section__mark">&ldquo;</div>
       <p class="quote-section__body">
         This isn't just about a game. It's about our time, our money, and our voices.
       </p>
