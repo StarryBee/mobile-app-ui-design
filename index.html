@@ -29,14 +29,6 @@
     width:100%; min-height:100dvh; background:var(--off);
     display:flex; flex-direction:column; position:relative;
   }
-  /* This is a phone-only interface: on wider screens, keep it at a
-     comfortable phone-like reading width instead of stretching the
-     layout thin and sparse. No frame chrome (no border/shadow/radius/
-     background change) — just a narrower column, same as any normal
-     website with side margins. */
-  @media (min-width:641px){
-    #frame{ max-width:560px; margin-inline:auto; }
-  }
 
   header{ position:sticky; top:0; z-index:50; background:rgba(255,253,251,.92); backdrop-filter:blur(6px); border-bottom:1px solid rgba(158,163,176,.3); }
   .headerbar{ height:56px; display:flex; align-items:center; justify-content:space-between; padding:0 16px; }
